@@ -14,14 +14,14 @@ let sliders = [];
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 
-//search by enter keyboard
+//search by enter key on keyboard
 var searchButton = document.getElementById("search-btn");
 var searchField = document.getElementById("search");
 
-searchField.addEventListener("keypress", function(event) {
-    if (event.key == "Enter"){
-      searchButton.click();
-    }
+searchField.addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
+    searchButton.click();
+  }
 });
 
 // show images 
@@ -53,16 +53,18 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.add('added');
- 
+
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else {
-    alert('Hey, Already added !')
+  }
+  else {
+    element.classList.toggle("added");
   }
 }
 var timer
 const createSlider = () => {
+  console.log(sliders.length);
   // check slider image length
   if (sliders.length < 2) {
     alert('Select at least 2 image.')
@@ -104,7 +106,6 @@ const changeItem = index => {
 
 // change slide item
 const changeSlide = (index) => {
-
   const items = document.querySelectorAll('.slider-item');
   if (index < 0) {
     slideIndex = items.length - 1
@@ -132,7 +133,13 @@ searchBtn.addEventListener('click', function () {
 })
 
 sliderBtn.addEventListener('click', function () {
-  createSlider()
+  const duration = document.getElementById('duration').value || 1000;
+  if (duration < 1000) {
+    alert("PLease enter slider duration in milliseconds!");
+  }
+  else {
+    createSlider();
+  }
 })
 
 //spinner
