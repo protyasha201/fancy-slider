@@ -52,14 +52,14 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  element.classList.toggle('added');
 
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   }
   else {
-    alert("Hey, already added");
+    sliders.pop(img);
   }
 }
 var timer
@@ -100,11 +100,11 @@ const createSlider = () => {
 
 //resize image slider
 const sliderSize = () => {
-  const givenSize = document.getElementById("slider-size").value || "600";
-
-  const givenSizePixels = parseInt(givenSize);
+  const givenSizeWidth = document.getElementById("slider-size-width").value || "600";
   const resizeSlider = document.querySelector("#sliders");
-  resizeSlider.style.width =givenSizePixels + "px";
+  const widthSizePixels = parseInt(givenSizeWidth);
+
+  resizeSlider.style.width = widthSizePixels + "px";
 }
 
 // change slider index 
