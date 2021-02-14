@@ -15,8 +15,8 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 
 //search by enter key on keyboard
-var searchButton = document.getElementById("search-btn");
-var searchField = document.getElementById("search");
+const searchButton = document.getElementById("search-btn");
+const searchField = document.getElementById("search");
 
 searchField.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
