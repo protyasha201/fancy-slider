@@ -86,7 +86,7 @@ const createSlider = () => {
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
-    item.innerHTML = `<img class="w-100"
+    item.innerHTML = `<img class="itemImage w-100"
     src="${slide}"
     alt="">`;
     sliderContainer.appendChild(item)
@@ -96,6 +96,15 @@ const createSlider = () => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
+}
+
+//resize image slider
+const sliderSize = () => {
+  const givenSize = document.getElementById("slider-size").value || "600";
+
+  const givenSizePixels = parseInt(givenSize);
+  const resizeSlider = document.querySelector("#sliders");
+  resizeSlider.style.width =givenSizePixels + "px";
 }
 
 // change slider index 
@@ -138,6 +147,7 @@ sliderBtn.addEventListener('click', function () {
   }
   else {
     createSlider();
+    sliderSize();
   }
 })
 
