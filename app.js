@@ -59,12 +59,11 @@ const selectItem = (event, img) => {
     sliders.push(img);
   }
   else {
-    element.classList.toggle("added");
+    alert("Hey, already added");
   }
 }
 var timer
 const createSlider = () => {
-  console.log(sliders.length);
   // check slider image length
   if (sliders.length < 2) {
     alert('Select at least 2 image.')
